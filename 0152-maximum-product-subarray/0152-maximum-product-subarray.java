@@ -1,5 +1,6 @@
 class Solution {
     public int maxProduct(int[] nums) {
+        //this will iterate left from the right 
         int prod = 1;
         int maxP = nums[0];
         for(int i = 0 ; i < nums.length; i++){
@@ -14,6 +15,7 @@ class Solution {
                 prod = 1;
             }
         }
+        //this is iterate from the right to left
         prod = 1;
         for(int j = nums.length - 1 ; j >= 0 ; j--){
             prod *= nums[j];

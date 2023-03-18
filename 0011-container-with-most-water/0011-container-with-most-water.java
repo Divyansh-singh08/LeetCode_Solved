@@ -8,13 +8,16 @@ class Solution {
         int j = n-1;//two pointer to manage index
         while(i<j){
             
+            int width = (j-i);
+            water = Math.max(water,Math.min(height[i],height[j]) * width);
+            
             if(height[i] < height[j]){
-                int width = (j-i);
-                water = Math.max(water,Math.min(height[i],height[j]) * width);
+                // int width = (j-i);
+                // water = Math.max(water,Math.min(height[i],height[j]) * width);
                 i++;
             }else{
-                int width = (j-i);
-                water = Math.max(water,Math.min(height[i],height[j]) * width);
+                // int width = (j-i);
+                // water = Math.max(water,Math.min(height[i],height[j]) * width);
                 j--;
             }
             

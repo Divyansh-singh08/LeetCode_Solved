@@ -11,15 +11,19 @@ class Solution {
             int width = (j-i);
             water = Math.max(water,Math.min(height[i],height[j]) * width);
             
-            if(height[i] < height[j]){
-                // int width = (j-i);
-                // water = Math.max(water,Math.min(height[i],height[j]) * width);
-                i++;
-            }else{
-                // int width = (j-i);
-                // water = Math.max(water,Math.min(height[i],height[j]) * width);
-                j--;
-            }
+//             if(height[i] < height[j]){
+//                 // int width = (j-i);
+//                 // water = Math.max(water,Math.min(height[i],height[j]) * width);
+//                 i++;
+//             }else{
+//                 // int width = (j-i);
+//                 // water = Math.max(water,Math.min(height[i],height[j]) * width);
+//                 j--;
+                
+//             }
+            
+            int ans = (height[i] < height[j])?(i++) : (j--);
+            //use ternary operator this also help writting sort code
             
         }
         return water;

@@ -43,32 +43,56 @@ class Solution {
     {
         // Your code goes here
         
+        // int temp[] = new int[n];
+        // int j=0;
+        // //now store positive element
+        // for(int i=0;i<arr.length;i++){
+        //     if(arr[i]>=0){
+        //         temp[j]=arr[i];
+        //         j++;
+        //     } 
+        // }
+        
+        // //exist case
+        // if(j == n || j == 0){
+        //     return;
+        // }
+        
+        // //now store negative element
+        // for(int i=0;i<arr.length;i++){
+        //     if(arr[i]<0){
+        //         temp[j]=arr[i];
+        //         j++;
+        //     }
+        // }
+        
+        // for(int i=0;i<temp.length;i++){
+        //     arr[i]=temp[i];
+        // }
+        
+        
         int temp[] = new int[n];
-        int j=0;
-        //now store positive element
-        for(int i=0;i<arr.length;i++){
-            if(arr[i]>=0){
-                temp[j]=arr[i];
-                j++;
-            } 
-        }
-        
-        //exist case
-        if(j == n || j == 0){
-            return;
-        }
-        
-        //now store negative element
-        for(int i=0;i<arr.length;i++){
-            if(arr[i]<0){
-                temp[j]=arr[i];
-                j++;
+        //this is done for the storing the positive value first
+        int it = 0;
+        for(int i=0; i < arr.length; i++){
+            if(arr[i]>0){
+                temp[it] = arr[i];
+                it++;
             }
         }
         
-        for(int i=0;i<temp.length;i++){
-            arr[i]=temp[i];
+        //now iterate throughthe left value it
+        for(int i=0; i < arr.length; i++){
+            if(arr[i]<0){
+                temp[it]=arr[i];
+                it++;
+            }
         }
+        
+        for(int m = 0; m<temp.length; m++){
+            arr[m]=temp[m];
+        }
+        
         
         
         

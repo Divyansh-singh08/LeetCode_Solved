@@ -11,6 +11,11 @@ class Solution {
         max = Math.max(nums[i]+i,max);
     }
     return true;
+        
+      
+        
+        
+        
          
         
     }

@@ -25,7 +25,7 @@ class Solution
 {
     // public long prime_Sum(int n)
     // {
-        // code here----> this is iterative approch
+    //     // code here----> this is iterative approch
     //     long sum = 0;
     //     while(n >= 2){
         
@@ -48,7 +48,7 @@ class Solution
     // }
     
     
-       public long prime_Sum(int n)
+      public long prime_Sum(int n)
     {
         // code here
         if(n==1) return 0;

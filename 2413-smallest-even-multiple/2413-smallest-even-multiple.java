@@ -23,8 +23,9 @@ class Solution {
 //         return lcm;
         
         //    o(1) //
-        
-        return n << (n & 1);
+        //even multiples
+        // return n << (n & 1);
+        return  n % 2 == 0 ? n : n * 2;
         
         
     }

@@ -48,30 +48,56 @@ class Solution
     // }
     
     
+    static int N = 1000000;
+    static boolean[] seive = new boolean[1000001];
+    
+    static void isSeivePrime(){
+             
+             for(int i = 2; i<=N; i++){
+                 seive[i] = true;
+             } 
+             
+            for(int i = 2; i*i<=N; i++){
+                
+                if(seive[i] == true){
+                    for(int j = i*i; j<=N; j+=i){
+                        //2 multiples goes
+                        seive[j] = false;
+                    }
+                }
+            }
+    }
+    
+    
       public long prime_Sum(int n)
     {
+        isSeivePrime();
         // code here
         if(n==1) return 0;
         long sum = 0;
         
         for(int i = 2; i<=n;i++){
             
-            if(isPrime(i)==true){
+            // if(isPrime(i)==true){
+            //     sum +=i;
+            // }
+            
+            if(seive[i]==true){
                 sum +=i;
             }
         }
         return sum;
     }
     
-    static boolean isPrime(int num){
+    // static boolean isPrime(int num){
         
-        for(int i= 2; i*i<=(num);i++){
+    //     for(int i= 2; i*i<=(num);i++){
             
-            if(num%i==0){
-                return false;
-            }
-        }
+    //         if(num%i==0){
+    //             return false;
+    //         }
+    //     }
         
-        return true;
-    }
+    //     return true;
+    // }
 }

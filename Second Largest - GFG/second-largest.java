@@ -35,21 +35,42 @@ public class Main {
 class Solution {
     int print2largest(int arr[], int n) {
        
-         //optimal way
-    int Fmax = arr[0];
-    int Smax = -1;
-    for(int i = 0; i<n; i++){
-        if(arr[i] > Fmax){
-            Fmax = arr[i];
+       
+    //Most Optimal Solution
+    int fLar = arr[0];
+    int sLar = -1;
+    
+    for(int i = 1; i<n; i++){
+        
+        if(arr[i] > fLar ){
+            sLar = fLar;
+            fLar = arr[i];
+        }
+        else if(arr[i] < fLar && arr[i] > sLar){
+            sLar = arr[i];
         }
     }
     
-    for(int i = 0; i<n; i++){
-        if(arr[i] > Smax && arr[i] < Fmax){
-            Smax = arr[i];
-        }
-    }
-    return Smax;
+    return sLar;
+    
+       
+       
+       
+       
+    //      //optimal way
+    // int Fmax = arr[0];
+    // int Smax = -1;
+    // for(int i = 0; i<n; i++){
+    //     if(arr[i] > Fmax){
+    //         Fmax = arr[i];
+    //     }
+    // }
+    // for(int i = 0; i<n; i++){
+    //       if(arr[i] > Smax && arr[i] < Fmax){
+    //         Smax = arr[i];
+    //     }
+    // }
+    // return Smax;
        
        
        

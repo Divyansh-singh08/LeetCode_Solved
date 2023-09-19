@@ -1,9 +1,19 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int i = 0;
-        for (int n : nums)
-        if (i == 0 || n > nums[i-1])
-            nums[i++] = n;
-        return i;
+       
+        //create set for storing unique element
+        TreeSet<Integer> uniq = new TreeSet<>();
+        for(int i = 0; i<nums.length; i++){
+            uniq.add(nums[i]);
+        }
+        
+        int index = 0;
+        for(int st : uniq){
+            nums[index] = st;
+            index++;
+        }
+        
+        return index;
+    
     }
 }

@@ -1,14 +1,15 @@
 class Solution {
+    //
     public static int primeF(int f){
         int ans = 0;
-        for(int i = 2; i < f; i++){
+        for(int i = 2; i*i<=f; i++){
             
             while(f%i == 0){
                 f = f /i;
                 ans = ans + i;
             }
         }
-        if( f != 1){
+        if( f > 1){
             ans = ans + f;
         }
         return ans;

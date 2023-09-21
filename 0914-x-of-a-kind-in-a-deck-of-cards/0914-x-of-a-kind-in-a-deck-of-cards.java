@@ -1,9 +1,5 @@
 class Solution {
     public boolean hasGroupsSizeX(int[] deck) {
-        int n = deck.length;
-        // if(n%3 == 0){
-        //     return false;
-        // }
         
         HashMap<Integer,Integer> map = new HashMap<>();
         

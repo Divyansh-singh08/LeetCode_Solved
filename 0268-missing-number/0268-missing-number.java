@@ -1,6 +1,33 @@
 class Solution {
     public int missingNumber(int[] nums) {
         
+        
+        //one more approch
+        //cyclic approch
+        int i = 0;
+        while(i < nums.length){
+            int currIndex = nums[i];  
+            //check
+            if((nums[i] < nums.length) && (nums[i] != nums[currIndex])){
+                
+                int temp = nums[i];
+                nums[i] = nums[currIndex];
+                nums[currIndex] = temp;                
+            }else{
+                i++;
+            }
+        }
+        
+        //search for elment
+        for(int j = 0; j<nums.length; j++){
+            if(nums[j] != j){
+                return j;
+            }
+        }
+        return nums.length;
+        
+        
+        
 //         //brute force approch
 //         int ans = 0;O(N^2)
 //         for(int i = 1; i<=nums.length; i++){
@@ -44,12 +71,12 @@ class Solution {
 //         return xor1 ^ xor2;
         
         
-        int xor = 0, i = 0;
-	    for (i = 0; i < nums.length; i++) {
-		    xor = xor ^ i ^ nums[i];
-	    }
+//         int xor = 0, i = 0;
+// 	    for (i = 0; i < nums.length; i++) {
+// 		    xor = xor ^ i ^ nums[i];
+// 	    }
 
-	    return xor ^ i;
+// 	    return xor ^ i;
         
     }
 }

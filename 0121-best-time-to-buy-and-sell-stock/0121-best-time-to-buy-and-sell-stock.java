@@ -1,16 +1,25 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        int n = prices.length;
-        int minI = Integer.MAX_VALUE;
-        int profit = 0;
         
-        for(int i = 0; i < n; i++){
-            if(prices[i]<minI){
-                minI= prices[i];//update it
+        int maxProfit = 0;
+        int minValue = Integer.MAX_VALUE;
+        //ITERATE To the array
+        for(int i = 0; i<prices.length; i++){
+            //Condition for checking the minValue 
+            //so that we can take max profit
+            if(prices[i] < minValue){
+                //if true prices[i] will now min value
+                minValue = prices[i];
             }
-            profit = Math.max(profit,prices[i]-minI);
+            //now check Max profit
+            // iterate to the array and check the max profit 
+            maxProfit = Math.max(maxProfit,(prices[i] - minValue));
+            
         }
-        return profit;
+        
+        return maxProfit;
+        
+        
         
     }
 }

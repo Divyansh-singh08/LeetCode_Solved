@@ -19,9 +19,6 @@ class Solution {
         
         while(l <= h){
             int mid = l + (h-l)/2;
-            // if(nums[l] > nums[l+1]) return l;
-            
-            // if(nums[h] > nums[h-1]) return h;
             
             if(nums[mid] > nums[mid-1] && nums[mid] > nums[mid+1]){
                 return mid;

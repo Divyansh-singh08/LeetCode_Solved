@@ -1,35 +1,86 @@
 class Solution {
     
     
-    public int longestConsecutive(int[] nums) {
+    //Make a final approch 
+     public int longestConsecutive(int[] nums) {
+         int n = nums.length;
+         //create a map
+         Map<Integer,Boolean> mapH = new HashMap<Integer,Boolean>();
+         for(int val : nums){
+             mapH.put(val,Boolean.FALSE);
+         }
+         
+         
+         //Edge case
+         if(n == 0) return 0;
+         
+         // 100,4,200,1,3,2
+         
+         int LCS = 0;
+         for(int i = 0; i<n; i++){
+             
+             int count = 1;
+             //checking for the forward chaining
+             int nextElement = nums[i]+1;
+             while(mapH.containsKey(nextElement) && mapH.get(nextElement) == false){
+                 count++;
+                 mapH.put(nextElement,Boolean.TRUE);
+                 nextElement++;
+             }
+             
+             //checking for the backward chaining
+             int PrevElement = nums[i] - 1;
+             while(mapH.containsKey(PrevElement) && mapH.get(PrevElement) == false){
+                 count++;
+                 mapH.put(PrevElement,Boolean.TRUE);
+                 PrevElement--;
+             }
+             
+             LCS = Math.max(LCS,count);
+             
+         }
+         return LCS;
+     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//      //Trying Better Approch
+//     // Sorting + Travers
+//     public int longestConsecutive(int[] nums) {
+//         int n = nums.length;
         
-        //Trying Better Approch
-        // Sorting + Travers
+//         //edge case
+//         if(n == 0) return 0;
         
-        int n = nums.length;
+//         Arrays.sort(nums);
         
-        if(n == 0) return 0;
+//         int smallValue = Integer.MIN_VALUE;
+//         int count = 0;
+//         int LCS = 1;
         
-        Arrays.sort(nums);
+//         for(int i = 0; i<n; i++){
+//             //making connecting chain by tracking the previous index
+//             if(nums[i]-1 == smallValue){
+//                 count++;
+//                 smallValue = nums[i];
+//             }else if(nums[i] != smallValue){
+//                 smallValue = nums[i];
+//                 count = 1;
+//             }
+//             LCS = Math.max(LCS,count);
+//         }
+//         return LCS;
         
-        int smallValue = Integer.MIN_VALUE;
-        int count = 0;
-        int LCS = 1;
-        
-        for(int i = 0; i<n; i++){
-            
-            if(nums[i]-1 == smallValue){
-                count++;
-                smallValue = nums[i];
-            }else if(nums[i] != smallValue){
-                smallValue = nums[i];
-                count = 1;
-            }
-            LCS = Math.max(LCS,count);
-        }
-        return LCS;
-        
-    }
+//     }
     
     
     

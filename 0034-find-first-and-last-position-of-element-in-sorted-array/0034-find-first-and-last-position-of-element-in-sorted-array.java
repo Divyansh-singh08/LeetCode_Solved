@@ -1,5 +1,6 @@
 class Solution {
-    
+    //need to store the index using call by 
+    //function for each index should be call by BS algo
     
     static int searchFirst(int[] nums,int target){
         int low = 0;

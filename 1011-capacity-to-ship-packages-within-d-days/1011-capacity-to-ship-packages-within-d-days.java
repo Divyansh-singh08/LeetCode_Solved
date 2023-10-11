@@ -20,14 +20,6 @@ class Solution {
     
     public int shipWithinDays(int[] weights, int days) {
         
-//         int n = weights.length;
-//         int max = Integer.MIN_VALUE;
-//         for(int i = 0 ; i<n; i++){
-            
-//             if(max < weights[i]){
-//                 max = weights[i];
-//             }
-//         }
         
         int l = Integer.MIN_VALUE, h = 0;
         for (int i = 0; i < weights.length; i++) {
@@ -35,9 +27,7 @@ class Solution {
             l = Math.max(l, weights[i]);
         }
 
-        // int l = max; 
-        // int h = (n*(n+1))/2;
-        int res = 1;
+        
         while(l <= h){
             
             int mid = (l+h)/2;
